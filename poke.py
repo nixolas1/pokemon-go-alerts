@@ -6,8 +6,8 @@ from time import strftime
 
 # add 96 to test for drowzee
 wanted = (143, 149, 131, 151, 146, 134, 145, 132, 103, 136, 144, 6, 3, 9, 34, 113, 40, 130, 59, 126, 26)
-LAT, LON = 59.91489154138958, 10.769691467285156
-# LAT, LON =  59.914160096249766,10.746334791183472
+# LAT, LON = 59.91489154138958, 10.769691467285156
+LAT, LON =  59.914160096249766,10.746334791183472
 
 request_url = "https://pokevision.com/map/data/"
 view_url = "https://pokevision.com/#/@"
@@ -61,7 +61,7 @@ def check_if_wanted_pokemon_is_nearby(lat, lon, wanted):
                 id = pokemon.get("id")
                 if id not in found:
                     found.append(id)
-                    out = "["+strftime("%H:%M")+"] "+"Found a " + name + " " + str(int(dist*1000)) + "m away! Url: " + view_url + str(latt)+","+str(lonn)
+                    out = "["+strftime("%H:%M")+"] "+"Found a " + name + " " + str(int(dist*1000)) + "m away! Url: " + view_url + str(latt)+","+str(lonn)+" with id: "+str(id)
                     
                     if(log):
                         logToFile(out)
